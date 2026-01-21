@@ -24,11 +24,11 @@
 
 - [Структура проекта](#структура-проекта)
 
-- [Разработка](#разработка)
+- [Разработка](#разработка и тестирование)
 
-- [Тестирование](#тестирование)
 
-- [Лицензия](#лицензия)
+
+
 
  
 
@@ -71,7 +71,7 @@
 ## Установка
 
  
-## 1. Клонирование репозитория
+### 1. Клонирование репозитория
 
 bash
 
@@ -79,7 +79,7 @@ git clone https://github.com/ВАШ_USERNAME/my-python-app.git
 
 cd my-python-app
 
-2. Создание виртуального окружения
+### 2. Создание виртуального окружения
 
 bash
 
@@ -87,11 +87,11 @@ python3 -m venv venv
 
 source venv/bin/activate  # Linux/Mac
 
-# или
+или
 
 venv\Scripts\activate     # Windows
 
-3. Установка зависимостей
+### 3. Установка зависимостей
 
 bash
 
@@ -99,7 +99,7 @@ pip install --upgrade pip
 
 pip install -r requirements.txt
 
-4. Настройка MySQL
+### 4. Настройка MySQL
 
 bash
 
@@ -113,13 +113,13 @@ sudo systemctl enable mysql
 
  
 
-# Создание базы данных и пользователя
+### 5. Создание базы данных и пользователя
 
 sudo mysql -u root -p
 
  
 
-# В MySQL CLI:
+### В MySQL CLI:
 
 CREATE DATABASE myapp_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -131,33 +131,33 @@ FLUSH PRIVILEGES;
 
 EXIT;
 
-5. Настройка переменных окружения
+### 6. Настройка переменных окружения
 
 bash
 
 cp .env.example .env
 
-# Отредактируйте .env файл
+### Отредактируйте .env файл
 
 nano .env
 
-6. Инициализация базы данных
+### 7. Инициализация базы данных
 
 bash
 
 python src/database/init_db.py
 
-# или
+или
 
 alembic upgrade head  # если используете Alembic
 
-Конфигурация
+## Конфигурация
 
 Файл .env
 
 env
 
-# Database
+### 1. Database
 
 DB_HOST=localhost
 
@@ -173,7 +173,7 @@ DB_CHARSET=utf8mb4
 
  
 
-# App
+### 2. App
 
 DEBUG=False
 
@@ -183,7 +183,7 @@ LOG_LEVEL=INFO
 
  
 
-# API
+### 3. API
 
 API_HOST=0.0.0.0
 
@@ -193,7 +193,7 @@ API_PORT=8000
 
 python
 
-# config/database.py
+### 4. config/database.py
 
 import os
 
@@ -221,15 +221,15 @@ DATABASE_CONFIG = {
 
 }
 
- Использование
+## Использование
 
-Запуск приложения
+### Запуск приложения
 
 bash
 
 python src/main.py
 
-Структура проекта
+## Структура проекта
 
 text
 
@@ -275,37 +275,23 @@ my-python-app/
 
 └── README.md
 
-8. requirements.txt для Python/MySQL проекта
+requirements.txt для Python/MySQL проекта
 
  
 
 txt
 
-# Основные зависимости
+### Основные зависимости
 
 mysql-connector-python==8.0.33
 
 python-dotenv==1.0.0
 
-SQLAlchemy==2.0.19
+kivy==2.0.19
 
  
 
-# Веб-фреймворк (если используется)
-
-fastapi==0.104.1
-
-uvicorn[standard]==0.24.0
-
-# или
-
-flask==3.0.0
-
-flask-sqlalchemy==3.1.1
-
- 
-
-# Утилиты
+### Утилиты
 
 python-dateutil==2.8.2
 
@@ -315,7 +301,7 @@ loguru==0.7.2
 
  
 
-# Разработка и тестирование
+## Разработка и тестирование
 
 pytest==7.4.3
 
