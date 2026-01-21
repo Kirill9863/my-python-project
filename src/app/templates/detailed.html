@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{data.title}}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: black; /* Чёрный цвет заголовка */
+        }
+
+        table {
+            width: 100%; /* Одинаковая ширина для всех таблиц */
+            border-collapse: collapse;
+            margin: auto;
+            border: 1px solid #ccc; /* Рамочка вокруг таблицы */
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Табличный отчет</h1> <!-- Название отчета -->
+    <p><strong>Дата генерации:</strong> {{data.generation_date}}</p>
+
+    {% for section in ['places', 'events', 'persons'] %}
+    <div style="width: 100%; margin: auto;">
+        <!-- Меняем названия таблиц на осмысленные -->
+        {% if section == 'places' %}
+        <h2>Исторические места</h2>
+        {% elif section == 'events' %}
+        <h2>Исторические события</h2>
+        {% elif section == 'persons' %}
+        <h2>Исторические личности</h2>
+        {% endif %}
+
+        <table>
+            {% if data[section]|length > 0 %}
+            <thead>
+                <tr>{% for key in data[section][0].keys() %}<th>{{key|capitalize}}</th>{% endfor %}</tr>
+            </thead>
+            <tbody>
+                {% for row in data[section] %}
+                <tr>{% for value in row.values() %}<td>{{value}}</td>{% endfor %}</tr>
+                {% endfor %}
+            </tbody>
+            {% else %}
+            <tr><td colspan="2">Нет данных.</td></tr>
+            {% endif %}
+        </table>
+    </div>
+    {% endfor %}
+</body>
+</html>

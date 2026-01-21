@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{data.title}}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: black; /* Черный цвет заголовка */
+            white-space: nowrap; /* Предотвращение переноса длинных слов */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto; /* Расстояние между изображениями */
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: auto;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Статистический отчет</h1> <!-- Название отчета -->
+    <p><strong>Дата генерации:</strong> {{data.generation_date}}</p>
+
+    <div style="width: 80%; margin: auto;">
+        <table>
+            <tr>
+                <th>Тип данных</th>
+                <th>Кол-во записей</th>
+            </tr>
+            <tr>
+                <td>Мест</td>
+                <td>{{data.total_places}}</td>
+            </tr>
+            <tr>
+                <td>Событий</td>
+                <td>{{data.total_events}}</td>
+            </tr>
+            <tr>
+                <td>Персонажей</td>
+                <td>{{data.total_persons}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Диаграмма распределения событий по годам -->
+    <img src="data:image/png;base64,{{data.distribution_chart}}" alt="График распределения событий по годам" />
+
+    <!-- Диаграмма происхождения исторических личностей -->
+    <img src="data:image/png;base64,{{data.persons_chart}}" alt="Диаграмма происхождения исторических личностей" />
+
+</body>
+</html>
