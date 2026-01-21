@@ -73,7 +73,7 @@
  
 ## 1. Клонирование репозитория
 
-```bash
+bash
 
 git clone https://github.com/ВАШ_USERNAME/my-python-app.git
 
@@ -279,7 +279,7 @@ my-python-app/
 
  
 
-```txt
+txt
 
 # Основные зависимости
 
