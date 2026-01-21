@@ -75,47 +75,47 @@
 
 bash
 
-git clone https://github.com/ВАШ_USERNAME/my-python-app.git
+```git clone https://github.com/ВАШ_USERNAME/my-python-app.git```
 
-cd my-python-app
+```cd my-python-app```
 
 ### 2. Создание виртуального окружения
 
 bash
 
-python3 -m venv venv
+```python3 -m venv venv```
 
-source venv/bin/activate  # Linux/Mac
+```source venv/bin/activate```
 
 или
 
-venv\Scripts\activate     # Windows
+```venv\Scripts\activate```
 
 ### 3. Установка зависимостей
 
 bash
 
-pip install --upgrade pip
+```pip install --upgrade pip```
 
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 ### 4. Настройка MySQL
 
 bash
 
-sudo apt update
+```sudo apt update```
 
-sudo apt install mysql-server mysql-client -y
+```sudo apt install mariadb-server mariadb-client -y```
 
-sudo systemctl start mysql
+```sudo systemctl start mariadb```
 
-sudo systemctl enable mysql
+```sudo systemctl enable mariadb```
 
  
 
 ### 5. Создание базы данных и пользователя
 
-sudo mysql -u root -p
+```sudo mariadb -u root -p```
 
  
 
@@ -135,21 +135,21 @@ EXIT;
 
 bash
 
-cp .env.example .env
+```cp .env.example .env```
 
 ### Отредактируйте .env файл
 
-nano .env
+```nano .env```
 
 ### 7. Инициализация базы данных
 
 bash
 
-python src/database/init_db.py
+```python src/database/init_db.py```
 
 или
 
-alembic upgrade head  # если используете Alembic
+```alembic upgrade head```
 
 ## Конфигурация
 
@@ -189,11 +189,11 @@ API_HOST=0.0.0.0
 
 API_PORT=8000
 
-Конфигурационный файл
+### 4. Конфигурационный файл
 
 python
 
-### 4. config/database.py
+ config/database.py
 
 import os
 
@@ -227,7 +227,7 @@ DATABASE_CONFIG = {
 
 bash
 
-python src/main.py
+```python src/main.py```
 
 ## Структура проекта
 
